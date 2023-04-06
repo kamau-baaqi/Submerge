@@ -1,83 +1,71 @@
 <html>
-    <title>Submerge Records</title>
-    <style>
+  <title>Submerge Records</title>
+  <style>
+    body {
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+    }
 
-      body {
-  overflow: hidden;
-  display: flex;
-  align-items: center;
+    #time {
+      position: absolute;
+      top: 25%;
+      left: 50%;
+      font-size: 21px;
+      font-weight: bold;
+      font-family: sans-serif;
+    }
 
-}
-      #time {
+    #image {
+      position: absolute;
+      top: 80%;
+      transform: translate(-50%, 0);
+      width: 256px;
+      transition: opacity 1s;
+    }
 
-        position: absolute;
-        top: 25%;
-        left: 50%;
-        font-size: 21px;
-        font-weight: bold;
-        font-family: sans-serif;
-      }
-      
-      #image {
+    /* Add styles for the new image here */
+    img {
+      position: absolute;
+      max-width: 50%;
+      max-height: 50%;
+      top: 50%; /* Position the image in the middle of the screen vertically */
+      left: 50%; /* Position the image in the middle of the screen horizontally */
+      transform: translate(-50%, -50%); /* Center the image both horizontally and vertically */
+    }
 
-        position: absolute;
-        top: 80%;
-        transform: translate(-50%, 0);
-        width: 256px;
-        transition: opacity 1s;
-      }
-      
+    #whole {
+      display: grid;
+    }
+  </style>
 
-      
-      /* Add styles for the new image here */
-      img {
-        position: absolute;
-        max-width: 50%;
-        max-height: 50%;
-        top: 50%; /* Position the image in the middle of the screen vertically */
-        left: 50%; /* Position the image in the middle of the screen horizontally */
-        transform: translate(-50%, -50%); /* Center the image both horizontally and vertically */
-      }
+  <!-- Add the new image here -->
+  <div id="whole">
+    <a href="https://shop.submerge.com/"><img src="https://images.squarespace-cdn.com/content/v1/5b44df3996e76f04a9e3fccc/1579566818742-Z3NO4AFNJ90PCATEQMO7/Submerge_Distribution.jpg?format=1500w" alt="Submerge Distribution"></a>
+  </div>
 
-      #whole {
+  <!-- Replace the src attribute with the URL of one of the 5 images you want to use -->
+  <img id="image" src="https://shop.submerge.com/wp-content/uploads/2020/10/SUBMERGE-LOGO-2019_300X100_BLACK.png" alt="We will never surface">
 
-        display:grid;
+  <div id="time"></div>
 
-}
-    </style>
+  <script>
+    function updateTime() {
+      var currentTime = new Date();
+      var hours = currentTime.getHours();
+      var minutes = currentTime.getMinutes();
+      var seconds = currentTime.getSeconds();
 
+      // Add leading zeros to the hours, minutes, and seconds if needed
+      hours = (hours < 10 ? "0" : "") + hours;
+      minutes = (minutes < 10 ? "0" : "") + minutes;
+      seconds = (seconds < 10 ? "0" : "") + seconds;
 
+      // Update the text content of the div element
+      document.getElementById("time").textContent = hours + ":" + minutes + ":" + seconds;
+    }
 
-
-  
-<!-- Add the new image here -->
-<div id="whole"></div><a href="https://shop.submerge.com/"><img src="https://images.squarespace-cdn.com/content/v1/5b44df3996e76f04a9e3fccc/1579566818742-Z3NO4AFNJ90PCATEQMO7/Submerge_Distribution.jpg?format=1500w" alt="Submerge Distribution" ></div>
-
-    <!-- Replace the src attribute with the URL of one of the 5 images you want to use -->
-<img id="image" src="https://shop.submerge.com/wp-content/uploads/2020/10/SUBMERGE-LOGO-2019_300X100_BLACK.png" alt="We will never surface"></a></div>
-
-   
-    <div id="time"></div>
-    <script>
-
-      
-      function updateTime() {
-        var currentTime = new Date();
-        var hours = currentTime.getHours();
-        var minutes = currentTime.getMinutes();
-        var seconds = currentTime.getSeconds();
-
-        // Add leading zeros to the hours, minutes, and seconds if needed
-        hours = (hours < 10 ? "0" : "") + hours;
-        minutes = (minutes < 10 ? "0" : "") + minutes;
-        seconds = (seconds < 10 ? "0" : "") + seconds;
-
-        // Update the text content of the div element
-        document.getElementById("time").textContent = hours + ":" + minutes + ":" + seconds;
-      }
-
-      // Update the time every second
-      setInterval(updateTime, 1000);
-      
-      
-  
+    // Update the time every second
+    setInterval(updateTime, 1000);
+  </script>
+</html>
