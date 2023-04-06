@@ -5,49 +5,46 @@
       overflow: hidden;
       display: flex;
       align-items: center;
+      flex-direction: column;
     }
 
     #time {
-      position: absolute;
-      top: 25%;
-      left: 50%;
       font-size: 21px;
       font-weight: bold;
       font-family: sans-serif;
+      margin-top: 20px;
     }
 
     #image {
-      position: absolute;
-      top: 80%;
-      transform: translate(-50%, 0);
-      width: 256px;
+      width: 80%;
+      max-width: 600px;
       transition: opacity 1s;
+      display: block;
     }
 
-    /* Add styles for the new image here */
-    img {
-      position: absolute;
-      max-width: 50%;
-      max-height: 50%;
-      top: 50%; /* Position the image in the middle of the screen vertically */
-      left: 50%; /* Position the image in the middle of the screen horizontally */
-      transform: translate(-50%, -50%); /* Center the image both horizontally and vertically */
+    #logo {
+      width: 100%;
+      max-width: 300px;
+      display: block;
+      margin-top: 20px;
     }
 
-    #whole {
-      display: grid;
+    #content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
     }
   </style>
 
-  <!-- Add the new image here -->
-  <div id="whole">
-    <a href="https://shop.submerge.com/"><img src="https://images.squarespace-cdn.com/content/v1/5b44df3996e76f04a9e3fccc/1579566818742-Z3NO4AFNJ90PCATEQMO7/Submerge_Distribution.jpg?format=1500w" alt="Submerge Distribution"></a>
-  </div>
-
-  <!-- Replace the src attribute with the URL of one of the 5 images you want to use -->
-  <img id="image" src="https://shop.submerge.com/wp-content/uploads/2020/10/SUBMERGE-LOGO-2019_300X100_BLACK.png" alt="We will never surface">
-
   <div id="time"></div>
+
+  <div id="content">
+    <!-- Add the new image here -->
+    <img id="image" src="https://images.squarespace-cdn.com/content/v1/5b44df3996e76f04a9e3fccc/1579566818742-Z3NO4AFNJ90PCATEQMO7/Submerge_Distribution.jpg?format=1500w" alt="Submerge Distribution">
+    <img id="logo" src="https://shop.submerge.com/wp-content/uploads/2020/10/SUBMERGE-LOGO-2019_300X100_BLACK.png" alt="Submerge Records Logo">
+  </div>
 
   <script>
     function updateTime() {
